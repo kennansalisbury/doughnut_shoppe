@@ -31,9 +31,10 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
     db.donut.findOne({ 
         where: {id: req.params.id},
-        include: [db.shop]
+        include: [db.shop, db.customer]
     })
     .then(donut => {
+        // res.send(donut)
         res.render('donuts/show', {donut})
     })
     .catch(err => {

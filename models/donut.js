@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   donut.associate = function(models) {
     // associations can be defined here
     models.donut.belongsTo(models.shop)
+    models.donut.belongsToMany(models.customer, {through: 'customers_donuts'})
   };
   return donut;
 };

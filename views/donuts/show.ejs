@@ -1,16 +1,24 @@
 <h1>All About <%=donut.name%></h1>
 
 <div class= "row">
-    <div class="col s6">
+    <div class="col s4">
         <img src="<%=donut.image%>" width="200px;" alt="donut">
         <p><strong>Type:</strong> <%=donut.type%></p>
         <p><strong>Frosting:</strong> <%=donut.frosting%></p>
         <p><strong>Description:</strong> <%=donut.description%></p>
     </div>
-    <div class="col s6 card">
+    <div class="col s4 card">
         <h2>Where can I eat this doughnut?</h2>
         <h3><a href="/shops/<%=donut.shop.id%>"><%=donut.shop.name%></a></h3>
         <p><%=donut.shop.address%></p>
         <p><%=donut.shop.description%></p>
     </div>
-</div>
+
+        <h2>Who likes this donut?</h2>
+        <%donut.customers.forEach(c => {%>
+            <h3>
+                <a href="/customers/<%=c.id%>">
+                    <%=c.name%>    
+                </a>
+            </h3>
+        <%})%>

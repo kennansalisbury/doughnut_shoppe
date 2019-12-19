@@ -17,6 +17,19 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
+app.get('/customers/:id', (req, res) => {
+    db.customer.findOne({
+        where: {id: req.params.id},
+        include: [db.donut]
+    })
+    .then(customer => {
+        res.render('customers/show', {customer})
+    }).catch(err => {
+        console.log(err)
+        res.send('error')
+    })
+})
+
 app.listen(process.env.PORT || 3000, () => {
     console.log('🌷🌷🌷🌷')
 })
