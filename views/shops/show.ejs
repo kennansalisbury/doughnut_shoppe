@@ -9,11 +9,13 @@
     </div>
 </div>
 
+<hr>
+
 <h2>Donut Selection</h2>
 
 <% shop.donuts.forEach(d => { %>
     <h3><%= d.name %></h3>
-    <img src="<%= d.image %>">
+    <img src="<%= d.image %>" width="150px;">
 <% }) %>
 
 

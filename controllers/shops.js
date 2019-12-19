@@ -25,6 +25,10 @@ router.post('/', (req, res) => {
 })
 
 
+router.get('/new', (req, res) => {
+    res.render('shops/new')
+})
+
 router.get('/:id', (req, res) => {
     console.log(req.params.id)
     // db.shop.findByPk(req.params.id)
@@ -42,9 +46,6 @@ router.get('/:id', (req, res) => {
 })
 
 
-router.get('/new', (req, res) => {
-    res.render('shops/new')
-})
 
 
 module.exports = router
